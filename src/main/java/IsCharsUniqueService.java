@@ -7,10 +7,14 @@ public class IsCharsUniqueService {
         for(int i = 0; i < text.length(); i++){
            for(int j = 0; j < text.length(); j++){
                if(text.charAt(i) == text.charAt(j) && i != j){
-                   return true;
+                   return false;
                }
            }
         }
-        return false;
+        return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Are all symbols different? " + text("12345 qwerty"));
     }
 }
