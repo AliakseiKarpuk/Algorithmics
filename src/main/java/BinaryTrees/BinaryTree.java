@@ -1,4 +1,4 @@
-package BinaryTree;
+package BinaryTrees;
 
 public class BinaryTree {
     Node root = null;
@@ -48,3 +48,4 @@ public class BinaryTree {
         root = addToTree(root, value);
     }
 }
+
