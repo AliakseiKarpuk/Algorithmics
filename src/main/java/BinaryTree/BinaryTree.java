@@ -8,8 +8,7 @@ public class BinaryTree {
             Node root = new Node(value);
             root.path.add(root);
             return root;
-        } else
-        if (value < node.value) {
+        } else if (value < node.value) {
             if (node.left == null) {
                 node.left = new Node(value);
                 node.left.path.addAll(node.path);
@@ -30,25 +29,19 @@ public class BinaryTree {
         return node;
     }
 
-    public int count() {
-        BinaryTree tree = new BinaryTree();
-        tree.add(3);
-        tree.add(4);
-        tree.add(0);
-        tree.add(5);
-        tree.add(6);
-        tree.add(7);
-        tree.add(35);
-        tree.add(20);
-        root = addToTree(root, root.value);
-
-        Node right = root.right;
-        Node left = root.left;
-        int c = 1;
-        if ( right != null && left != null){
-            c++;
+    private int countNodes(Node localRoot, int count) {
+        if (localRoot == null)
+            return count;
+        if (localRoot.getRight() != null) {
+            count++;
+            count = countNodes(localRoot.left, count);
+            count = countNodes(localRoot.right, count);
         }
-        return c;
+        return count;
+    }
+
+    public int countNodes() {
+        return countNodes(root, 0);
     }
 
     void add(int value) {

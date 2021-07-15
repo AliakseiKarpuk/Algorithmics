@@ -21,10 +21,10 @@ public class MatrixTest {
     }
 
     @Test
-    public void differentMatrixTest(){
-       String beforeWrite = MatrixService.readFromFile();
-       MatrixService.matrixWriter();
-       String afterWrite = MatrixService.readFromFile();
-       Assert.assertNotEquals(beforeWrite, afterWrite);
+    public void differentMatrixTest() {
+        String beforeWrite = MatrixService.readFromFile();
+        MatrixService.matrixWriter();
+        String afterWrite = MatrixService.readFromFile();
+        Assert.assertNotEquals(beforeWrite, afterWrite);
     }
 }
