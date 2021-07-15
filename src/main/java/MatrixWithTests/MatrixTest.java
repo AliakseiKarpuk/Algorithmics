@@ -1,4 +1,4 @@
-package Matrix;
+package MatrixWithTests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
