@@ -19,4 +19,8 @@ public class MatrixTest {
     public void matrixWriterTest() {
         Assert.assertTrue(MatrixService.matrixWriter());
     }
+
+    /*
+    Тестовое покрытие должно лежать в папке с именем test
+    */
 }

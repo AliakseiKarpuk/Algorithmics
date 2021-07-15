@@ -12,7 +12,11 @@ import java.util.List;
 
 @Slf4j
 public class MatrixService {
-
+    /*
+           1. Отсутствует Джавадок.
+           2. Отдельные задачи на мой взгляд лучше либо разделять на проекты либо хотябы на отдельные модули,
+           не понятно какой клас с кем взоимодействует.
+    */
     private Integer array[][];
 
     public MatrixService(Integer[][] array, int lengthRow, int lengthColumn) {
@@ -43,7 +47,7 @@ public class MatrixService {
         } catch (IOException e) {
             log.info("Не найдены строки символов!");
         }
-        System.out.println();
+        System.out.println(); // зачем это здесь?
         return rows.size();
     }
 
@@ -63,6 +67,7 @@ public class MatrixService {
         return "" + matrixString;
     }
 
+    // Вданной функции должен быть перебор элементов и перемена местами, а не присвоение в правильном порядке
     private static Integer[][] matrixMainDiagonalBuilder() {
 
         int matrixSize = MatrixService.countOfRows();
@@ -84,9 +89,11 @@ public class MatrixService {
     public static boolean matrixWriter() {
 
         try {
-            Integer[][] array = matrixMainDiagonalBuilder();
+
+            Integer[][] array = matrixMainDiagonalBuilder(); // готовая матрица присваивается констуктору класса
             MatrixService arrayMatrix = new MatrixService(array, array.length, array[0].length);
 
+            //отсутствует момент считки названия файла с консоли
             FileWriter writer = null;
             try {
                 writer = new FileWriter("matrix.txt", false);
@@ -107,4 +114,5 @@ public class MatrixService {
             return false;
         }
     }
+
 }
