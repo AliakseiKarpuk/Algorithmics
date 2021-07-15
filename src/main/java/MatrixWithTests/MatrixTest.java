@@ -19,4 +19,12 @@ public class MatrixTest {
     public void matrixWriterTest() {
         Assert.assertTrue(MatrixService.matrixWriter());
     }
+
+    @Test
+    public void differentMatrixTest(){
+       String beforeWrite = MatrixService.readFromFile();
+       MatrixService.matrixWriter();
+       String afterWrite = MatrixService.readFromFile();
+       Assert.assertNotEquals(beforeWrite, afterWrite);
+    }
 }
