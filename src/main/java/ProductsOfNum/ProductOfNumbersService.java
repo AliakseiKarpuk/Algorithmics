@@ -1,3 +1,5 @@
+package ProductsOfNum;
+
 import java.util.Arrays;
 
 import static java.lang.Math.max;

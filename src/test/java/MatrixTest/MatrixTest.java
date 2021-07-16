@@ -1,5 +1,6 @@
-package MatrixWithTests;
+package MatrixTest;
 
+import MatrixWithTests.MatrixService;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

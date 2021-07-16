@@ -1,4 +1,4 @@
-import java.util.Locale;
+package IsCharsUniq;
 
 public class IsCharsUniqueService {
 
@@ -14,6 +14,6 @@ public class IsCharsUniqueService {
     }
 
     public static void main(String[] args) {
-        System.out.println("Are all symbols different? " + text("12345 qwWERTYerty"));
+        System.out.println("Are all symbols different? " + text("QWERTYqwerty"));
     }
 }
