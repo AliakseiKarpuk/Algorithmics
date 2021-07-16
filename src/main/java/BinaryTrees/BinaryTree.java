@@ -32,7 +32,7 @@ public class BinaryTree {
     private int countNodes(Node localRoot, int count) {
         if (localRoot == null)
             return count;
-        if (localRoot.getRight() != null) {
+        if (localRoot.getRight() != null && localRoot.getLeft() != null) {
             count++;
             count = countNodes(localRoot.left, count);
             count = countNodes(localRoot.right, count);

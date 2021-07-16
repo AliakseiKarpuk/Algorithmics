@@ -4,17 +4,20 @@ import static java.lang.Math.max;
 
 public class ProductOfNumbersService {
 
+    public static int productOfNumber(int[] numbers){
+
+        Arrays.sort(numbers);
+        int length = numbers.length;
+        try {
+            int temp = max(numbers[0] * numbers[1] * numbers[length - 1], numbers[length - 1] * numbers[length - 2] * numbers[length - 3]);
+            return temp;
+        } catch (IndexOutOfBoundsException ex) {
+            return 0;
+        }
+    }
+
     public static void main(String[] args) {
 
-        int array[] = {-10, 8, 4, 2, 1, 1, -10};
-        Arrays.sort(array);
-        int length = array.length;
-        try {
-            int temp = max(array[0] * array[1] * array[length - 1], array[length - 1] * array[length - 2] * array[length - 3]);
-            System.out.println(temp);
-        } catch (IndexOutOfBoundsException ex) {
-            System.out.println("Необходимо ввести не менее 3 чисел!");
-        }
-
+        System.out.println(productOfNumber(new int[]{2, 4, -10, -10, 8}));
     }
 }
