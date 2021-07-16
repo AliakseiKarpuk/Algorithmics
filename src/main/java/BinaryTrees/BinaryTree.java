@@ -3,7 +3,7 @@ package BinaryTrees;
 public class BinaryTree {
     Node root = null;
 
-    Node addToTree(Node node, int value) {
+    private Node addToTree(Node node, int value) {
         if (node == null) {
             Node root = new Node(value);
             root.path.add(root);
@@ -44,8 +44,20 @@ public class BinaryTree {
         return countNodes(root, 0);
     }
 
-    void add(int value) {
+    public void add(int value) {
         root = addToTree(root, value);
     }
+
+    public static BinaryTree addBinaryTree(int[] num){
+
+        BinaryTree tree = new BinaryTree();
+
+        for (int i = 0; i < num.length; i++){
+            tree.add(num[i]);
+        }
+        return tree;
+    }
+
+
 }
 
