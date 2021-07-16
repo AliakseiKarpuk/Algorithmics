@@ -7,12 +7,12 @@ import org.testng.annotations.Test;
 public class CharsTest {
 
     @Test
-    public void charsTrueTest(){
+    public void charsTrueTest() {
         Assert.assertTrue(IsCharsUniqueService.text("QWERTYqwerty"));
     }
 
     @Test
-    public void charsFalseTest(){
+    public void charsFalseTest() {
         Assert.assertFalse(IsCharsUniqueService.text("qwerqwer"));
     }
 }

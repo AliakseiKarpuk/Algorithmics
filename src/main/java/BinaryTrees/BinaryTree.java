@@ -48,11 +48,11 @@ public class BinaryTree {
         root = addToTree(root, value);
     }
 
-    public static BinaryTree addBinaryTree(int[] num){
+    public static BinaryTree addBinaryTree(int[] num) {
 
         BinaryTree tree = new BinaryTree();
 
-        for (int i = 0; i < num.length; i++){
+        for (int i = 0; i < num.length; i++) {
             tree.add(num[i]);
         }
         return tree;

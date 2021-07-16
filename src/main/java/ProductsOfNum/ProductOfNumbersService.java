@@ -6,7 +6,7 @@ import static java.lang.Math.max;
 
 public class ProductOfNumbersService {
 
-    public static int productOfNumber(int[] numbers){
+    public static int productOfNumber(int[] numbers) {
 
         Arrays.sort(numbers);
         int length = numbers.length;
