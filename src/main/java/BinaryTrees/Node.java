@@ -3,7 +3,6 @@ package BinaryTrees;
 import java.util.ArrayList;
 
 public class Node {
-
     public int value;
     public Node left = null;
     public Node right = null;

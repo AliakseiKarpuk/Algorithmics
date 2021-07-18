@@ -1,38 +1,40 @@
 package BinaryTreeTest;
 
 import BinaryTrees.BinaryTree;
+import BinaryTrees.Node;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class BinaryTreeTest {
 
     @Test
-    public void valueWithThreeNodeTest() {
-        Assert.assertEquals(BinaryTree.addBinaryTree(new int[]{100, 110, 111, 109, 90, 91, 89}).countNodes(), 3);
+    public void addToTreeTest(){
+        BinaryTree tree = new BinaryTree();
+        Assert.assertTrue(tree.add(2));
     }
 
     @Test
-    public void emptyValueTest() {
-        Assert.assertEquals(BinaryTree.addBinaryTree(new int[]{}).countNodes(), 0);
+    public void treeTest(){
+
+        BinaryTree tree = new BinaryTree();
+        tree.add(7);
+        tree.add(3);
+        tree.add(9);
+        tree.add(2);
+        tree.add(5);
+        tree.add(4);
+        tree.add(6);
+        tree.add(8);
+        tree.add(10);
+
+        Assert.assertEquals(tree.countOfNodes(tree.root), 4);
     }
 
     @Test
-    public void valueWithoutNodeTest() {
-        Assert.assertEquals(BinaryTree.addBinaryTree(new int[]{100, 10, 9, 8, 7}).countNodes(), 0);
-    }
+    public void emptyTreeTest(){
 
-    @Test
-    public void valueWithTwoNodeTest() {
-        Assert.assertEquals(BinaryTree.addBinaryTree(new int[]{100, 10, 9, 8, 110}).countNodes(), 1);
-    }
+        BinaryTree tree = new BinaryTree();
 
-    @Test
-    public void negativeValueTest() {
-        Assert.assertEquals(BinaryTree.addBinaryTree(new int[]{-100, -110, -111, -109, -90, -91, -89}).countNodes(), 3);
-    }
-
-    @Test
-    public void negativeAndPositiveNumberTest() {
-        Assert.assertEquals(BinaryTree.addBinaryTree(new int[]{100, -110, 111, -109, 90, 91, -89}).countNodes(), 1);
+        Assert.assertEquals(tree.countOfNodes(tree.root), 0);
     }
 }

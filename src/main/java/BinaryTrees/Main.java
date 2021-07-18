@@ -3,8 +3,18 @@ package BinaryTrees;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Количество узлов с двумя наследниками = " + BinaryTree.addBinaryTree
-                (new int[]{100, 110, 111, 109, 90, 91, 89})
-                .countNodes());
+        BinaryTree tree = new BinaryTree();
+        tree.add(7);
+        tree.add(3);
+        tree.add(9);
+        tree.add(2);
+        tree.add(5);
+        tree.add(4);
+        tree.add(6);
+        tree.add(8);
+        tree.add(10);
+
+        System.out.println(tree.countOfNodes(tree.root));
+
     }
 }

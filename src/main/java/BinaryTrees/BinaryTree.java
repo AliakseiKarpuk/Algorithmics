@@ -1,7 +1,7 @@
 package BinaryTrees;
 
 public class BinaryTree {
-    Node root = null;
+    public Node root = null;
 
     private Node addToTree(Node node, int value) {
         if (node == null) {
@@ -29,35 +29,25 @@ public class BinaryTree {
         return node;
     }
 
-    private int countNodes(Node localRoot, int count) {
-        if (localRoot == null)
-            return count;
-        if (localRoot.getRight() != null && localRoot.getLeft() != null) {
-            count++;
-            count = countNodes(localRoot.left, count);
-            count = countNodes(localRoot.right, count);
+    public int countOfNodes (Node node) {
+        if(node == null) {
+            return 0;
         }
-        return count;
-    }
-
-    public int countNodes() {
-        return countNodes(root, 0);
-    }
-
-    public void add(int value) {
-        root = addToTree(root, value);
-    }
-
-    public static BinaryTree addBinaryTree(int[] num) {
-
-        BinaryTree tree = new BinaryTree();
-
-        for (int i = 0; i < num.length; i++) {
-            tree.add(num[i]);
+        if (node.left == null && node.right == null) {
+            return 0;
+        } else {
+            return countOfNodes(node.left) + countOfNodes(node.right) + 1;
         }
-        return tree;
     }
 
+    public boolean add(int value) {
+        try {
+            root = addToTree(root, value);
+            return true;
+        }catch (Exception e){
+            return false;
+        }
+    }
 
 }
 
