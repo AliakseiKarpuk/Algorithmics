@@ -83,23 +83,23 @@ public class MatrixServices {
     public static Integer[][] createMatrix(Integer[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
-                    int temp = (int) (Math.random() * 2);
-                    array[i][j] = temp % 3;
+                int temp = (int) (Math.random() * 2);
+                array[i][j] = temp % 3;
             }
             int count = 1;
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] == 0) {
-                        if (count > 1) {
-                            int number;
-                            do {
-                                number = (int) (Math.random() * 14) - 5;
-                            } while (number == 0);
-                            array[i][j] = number;
-                        }
-                        count++;
+                    if (count > 1) {
+                        int number;
+                        do {
+                            number = (int) (Math.random() * 14) - 5;
+                        } while (number == 0);
+                        array[i][j] = number;
                     }
+                    count++;
                 }
             }
+        }
         return array;
     }
 
