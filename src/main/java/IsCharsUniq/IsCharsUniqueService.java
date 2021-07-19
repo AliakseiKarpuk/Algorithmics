@@ -2,10 +2,10 @@ package IsCharsUniq;
 
 public class IsCharsUniqueService {
 
-    public static boolean text(String text) {
-        for (int i = 0; i < text.length(); i++) {
-            for (int j = 0; j < text.length(); j++) {
-                if (text.charAt(i) == text.charAt(j) && i != j) {
+    public static boolean chars(String chars) {
+        for (int i = 0; i < chars.length(); i++) {
+            for (int j = 0; j < chars.length(); j++) {
+                if (chars.charAt(i) == chars.charAt(j) && i != j) {
                     return false;
                 }
             }
@@ -14,6 +14,6 @@ public class IsCharsUniqueService {
     }
 
     public static void main(String[] args) {
-        System.out.println("Are all symbols different? " + text("QWERTYqwerty"));
+        System.out.println("Are all symbols different? " + chars("QWERTYqwerty"));
     }
 }

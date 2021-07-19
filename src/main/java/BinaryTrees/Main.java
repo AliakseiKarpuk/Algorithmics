@@ -13,7 +13,12 @@ public class Main {
         tree.add(6);
         tree.add(8);
         tree.add(10);
+        tree.add(12);
+        tree.add(11);
+//        tree.add(13);
+//        tree.add(14);
 
+        System.out.println(tree.takeVisual());
         System.out.println(tree.countOfNodes(tree.root));
 
     }

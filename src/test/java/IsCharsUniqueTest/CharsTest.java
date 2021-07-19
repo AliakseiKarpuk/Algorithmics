@@ -1,18 +1,14 @@
 package IsCharsUniqueTest;
 
 import IsCharsUniq.IsCharsUniqueService;
+import dataProvider.IsCharUniqueDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class CharsTest {
 
-    @Test
-    public void charsTrueTest() {
-        Assert.assertTrue(IsCharsUniqueService.text("QWERTYqwerty"));
-    }
-
-    @Test
-    public void charsFalseTest() {
-        Assert.assertFalse(IsCharsUniqueService.text("qwerqwer"));
-    }
+   @Test(dataProvider = "IsCharUniqueDataProvider", dataProviderClass = IsCharUniqueDataProvider.class)
+    public void charsWithDifferentDataTest(String chars, boolean value){
+        Assert.assertEquals(IsCharsUniqueService.chars(chars), value);
+   }
 }

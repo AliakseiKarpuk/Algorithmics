@@ -49,5 +49,38 @@ public class BinaryTree {
         }
     }
 
+    String takeVisual() {
+        StringBuilder tree = new StringBuilder();
+        tree.append(root.value);
+        String pointerLeft;
+        if (root.right != null)
+            pointerLeft = "+--";
+        else
+            pointerLeft = "L--";
+
+        takeNodesString(tree, "", pointerLeft, root.left, root.right != null);
+        takeNodesString(tree, "", "L--", root.right, false);
+        return tree.toString();
+    }
+
+    void takeNodesString(StringBuilder tree, String padding, String pointer, Node
+            node, boolean hasRightNode) {
+        if (node != null) {
+            tree.append("\n").append(padding).append(pointer).append(node.value < 0 ? "(" +
+                    node.value + ")" : node.value);
+            if (hasRightNode)
+                padding += "¦  ";
+            else
+                padding += "   ";
+
+            if (node.right != null)
+                pointer = "+--";
+            else
+                pointer = "L--";
+
+            takeNodesString(tree, padding, pointer, node.left, node.right != null);
+            takeNodesString(tree, padding, "L--", node.right, false);
+        }
+    }
 }
 

@@ -26,6 +26,8 @@ public class BinaryTreeTest {
         tree.add(6);
         tree.add(8);
         tree.add(10);
+        tree.add(12);
+        tree.add(11);
 
         Assert.assertEquals(tree.countOfNodes(tree.root), 4);
     }

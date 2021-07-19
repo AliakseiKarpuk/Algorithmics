@@ -1,18 +1,14 @@
 package ProductOfNumTest;
 
 import ProductsOfNum.ProductOfNumbersService;
+import dataProvider.ProductOfNumbersDataProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ProductOfNumbersTest {
 
-    @Test
-    public void emptyArrayTest() {
-        Assert.assertEquals(ProductOfNumbersService.productOfNumber(new int[]{}), 0);
-    }
-
-    @Test
-    public void productOfNumberTest() {
-        Assert.assertEquals(ProductOfNumbersService.productOfNumber(new int[]{-10, 5, 8, -10, 3}), 800);
+    @Test(dataProvider = "ProductOfNumbersDataProvider", dataProviderClass = ProductOfNumbersDataProvider.class)
+    public void productOfNumberTest(int[] numbers, int expextedResult) {
+        Assert.assertEquals(ProductOfNumbersService.productOfNumber(numbers), expextedResult);
     }
 }
