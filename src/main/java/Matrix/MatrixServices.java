@@ -1,4 +1,4 @@
-package Mt;
+package Matrix;
 
 import java.io.*;
 import java.util.Arrays;
