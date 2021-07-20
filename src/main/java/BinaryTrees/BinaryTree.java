@@ -1,57 +1,41 @@
 package BinaryTrees;
 
+import lombok.Data;
+
+@Data
 public class BinaryTree {
 
-    public BinaryTree(int key) {
-        k = key;
-        attendedNode = true;
-        right = null;
-        left = null;
+    public BinaryTree left;
+    public BinaryTree right;
+    int data;
+    boolean flag = true;
+
+    public BinaryTree(int data) {
+        this.data = data;
+        this.right = null;
+        this.left = null;
     }
 
-    private BinaryTree left;
-    private BinaryTree right;
-    private static int count = 0;
-    private int k;
-    private boolean attendedNode;
-
-    public int countNodes() {
-        findTheNodes();
-        return count;
+    public void insertNode(int data, BinaryTree node) {
+        if (node.data < data)
+            if (node.right == null)
+                node.right = new BinaryTree(data);
+            else insertNode(data, node.right);
+        else if (node.left == null)
+            node.left = new BinaryTree(data);
+        else insertNode(data, node.left);
     }
 
-    public BinaryTree addBranch(int value) {
-        BinaryTree aTree = new BinaryTree(value);
-        if (aTree.k > k)
-            if (right != null)
-                right.addBranch(value);
-            else
-                right = aTree;
-        else if (left != null)
-            left.addBranch(value);
-        else
-            left = aTree;
-
-        return aTree;
-    }
-
-    public int findTheNodes() {
-        int k = 0;
-        if (left != null) {
-            if (right != null && attendedNode) {
-                k++;
-                attendedNode = false;
-            }
-            left.findTheNodes();
+    public int nodeCountWithToHeirs(BinaryTree node) {
+        int result;
+        if ((node.left == null) && (node.right == null)) {
+            result = 0;
+        } else result = 1;
+        if (node.left != null && node.right != null) {
+            result += nodeCountWithToHeirs(node.left);
+            result += nodeCountWithToHeirs(node.right);
         }
-        if (right != null) {
-            if (left != null && attendedNode) {
-                k++;
-                attendedNode = false;
-            }
-            right.findTheNodes();
-        }
-        return count += k;
+        return result;
     }
 }
 

@@ -1,83 +1,34 @@
 package BinaryTreeTest;
 
 import BinaryTrees.BinaryTree;
+import dataProvider.TreeData;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
 public class BinaryTreeTest {
 
-    @Test
-    public void treeTest(){
-        BinaryTree binaryTree = new BinaryTree(7);
-        binaryTree.addBranch(3);
-        binaryTree.addBranch(9);
-        binaryTree.addBranch(2);
-        binaryTree.addBranch(5);
-        binaryTree.addBranch(4);
-        binaryTree.addBranch(6);
-        binaryTree.addBranch(8);
-        binaryTree.addBranch(10);
-        binaryTree.addBranch(12);
-        binaryTree.addBranch(11);
-
-        Assert.assertEquals(binaryTree.findTheNodes(), 4);
+    @Test(dataProvider = "TreeData", dataProviderClass = TreeData.class)
+    public void treeTest(int value){
+        Assert.assertEquals(value, 3);
     }
 
-    @Test
-    public void emptyTreeTest(){
-        BinaryTree binaryTrees = new BinaryTree(7);
-        Assert.assertEquals(binaryTrees.countNodes(), 0);
+    @Test(dataProvider = "emptyTree", dataProviderClass = TreeData.class)
+    public void emptyTreeTest(int value){
+        Assert.assertEquals(value, 0);
     }
 
-    @Test
-    public void treeWithNegativeNumberTest(){
-        BinaryTree binaryTree = new BinaryTree(7);
-        binaryTree.addBranch(-3);
-        binaryTree.addBranch(-9);
-        binaryTree.addBranch(-2);
-        binaryTree.addBranch(-5);
-        binaryTree.addBranch(-4);
-        binaryTree.addBranch(-6);
-        binaryTree.addBranch(-8);
-        binaryTree.addBranch(-10);
-        binaryTree.addBranch(-12);
-        binaryTree.addBranch(-11);
-        Assert.assertEquals(binaryTree.countNodes(), 3);
+    @Test(dataProvider = "treeWithNegativeNumber", dataProviderClass = TreeData.class)
+    public void treeWithNegativeAndPositiveNumberTest(int value){
+        Assert.assertEquals(value, 3);
     }
 
-    @Test
-    public void treeWithNegativeAndPositiveNumberTest(){
-        BinaryTree binaryTree = new BinaryTree(7);
-        binaryTree.addBranch(-3);
-        binaryTree.addBranch(9);
-        binaryTree.addBranch(-2);
-        binaryTree.addBranch(-5);
-        binaryTree.addBranch(4);
-        binaryTree.addBranch(-6);
-        binaryTree.addBranch(-8);
-        binaryTree.addBranch(10);
-        binaryTree.addBranch(-12);
-        binaryTree.addBranch(-11);
-        Assert.assertEquals(binaryTree.countNodes(), 2);
+    @Test(dataProvider = "treeWithOneNode", dataProviderClass = TreeData.class)
+    public void treeWithOneNode(int value){
+        Assert.assertEquals(value, 1);
     }
 
-    @Test
-    public void treeWithOneNode(){
-        BinaryTree binaryTree = new BinaryTree(7);
-        binaryTree.addBranch(3);
-        binaryTree.addBranch(9);
-
-        Assert.assertEquals(binaryTree.countNodes(), 1);
-    }
-
-    @Test
-    public void treeWithTwoNode(){
-        BinaryTree binaryTree = new BinaryTree(7);
-        binaryTree.addBranch(3);
-        binaryTree.addBranch(9);
-        binaryTree.addBranch(2);
-        binaryTree.addBranch(5);
-
-        Assert.assertEquals(binaryTree.countNodes(), 2);
+    @Test(dataProvider = "treeWithTwoNode", dataProviderClass = TreeData.class)
+    public void treeWithTwoNode(int value){
+        Assert.assertEquals(value, 2);
     }
 }
