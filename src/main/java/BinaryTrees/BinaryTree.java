@@ -1,9 +1,12 @@
 package BinaryTrees;
 
 public class BinaryTree {
+
     public BinaryTree(int key) {
         k = key;
         attendedNode = true;
+        right = null;
+        left = null;
     }
 
     private BinaryTree left;
@@ -13,24 +16,26 @@ public class BinaryTree {
     private boolean attendedNode;
 
     public int countNodes() {
-        this.findTheNodes();
+        findTheNodes();
         return count;
     }
 
-    public BinaryTree addBranch(BinaryTree aTree) {
+    public BinaryTree addBranch(int value) {
+        BinaryTree aTree = new BinaryTree(value);
         if (aTree.k > k)
             if (right != null)
-                right.addBranch(aTree);
+                right.addBranch(value);
             else
                 right = aTree;
         else if (left != null)
-            left.addBranch(aTree);
+            left.addBranch(value);
         else
             left = aTree;
+
         return aTree;
     }
 
-    private void findTheNodes() {
+    public int findTheNodes() {
         int k = 0;
         if (left != null) {
             if (right != null && attendedNode) {
@@ -46,8 +51,7 @@ public class BinaryTree {
             }
             right.findTheNodes();
         }
-        this.count += k;
-
+        return count += k;
     }
 }
 
