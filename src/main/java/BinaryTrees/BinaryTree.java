@@ -1,86 +1,57 @@
 package BinaryTrees;
 
 public class BinaryTree {
-    public Node root = null;
 
-    private Node addToTree(Node node, int value) {
-        if (node == null) {
-            Node root = new Node(value);
-            root.path.add(root);
-            return root;
-        } else if (value < node.value) {
-            if (node.left == null) {
-                node.left = new Node(value);
-                node.left.path.addAll(node.path);
-                node.left.path.add(node.left);
-            } else {
-                addToTree(node.left, value);
-            }
-        } else if (value > node.value) {
-            if (node.right == null) {
-                node.right = new Node(value);
-                node.right.path.addAll(node.path);
-                node.right.path.add(node.right);
-            } else {
-                addToTree(node.right, value);
-            }
-        }
-
-        return node;
+    public BinaryTree(int key) {
+        k = key;
+        attendedNode = true;
+        right = null;
+        left = null;
     }
 
-    public int countOfNodes (Node node) {
-        if(node == null) {
-            return 0;
-        }
-        if (node.left == null && node.right == null) {
-            return 0;
-        } else {
-            return countOfNodes(node.left) + countOfNodes(node.right) + 1;
-        }
+    private BinaryTree left;
+    private BinaryTree right;
+    private static int count = 0;
+    private int k;
+    private boolean attendedNode;
+
+    public int countNodes() {
+        findTheNodes();
+        return count;
     }
 
-    public boolean add(int value) {
-        try {
-            root = addToTree(root, value);
-            return true;
-        }catch (Exception e){
-            return false;
-        }
-    }
-
-    String takeVisual() {
-        StringBuilder tree = new StringBuilder();
-        tree.append(root.value);
-        String pointerLeft;
-        if (root.right != null)
-            pointerLeft = "+--";
+    public BinaryTree addBranch(int value) {
+        BinaryTree aTree = new BinaryTree(value);
+        if (aTree.k > k)
+            if (right != null)
+                right.addBranch(value);
+            else
+                right = aTree;
+        else if (left != null)
+            left.addBranch(value);
         else
-            pointerLeft = "L--";
+            left = aTree;
 
-        takeNodesString(tree, "", pointerLeft, root.left, root.right != null);
-        takeNodesString(tree, "", "L--", root.right, false);
-        return tree.toString();
+        return aTree;
     }
 
-    void takeNodesString(StringBuilder tree, String padding, String pointer, Node
-            node, boolean hasRightNode) {
-        if (node != null) {
-            tree.append("\n").append(padding).append(pointer).append(node.value < 0 ? "(" +
-                    node.value + ")" : node.value);
-            if (hasRightNode)
-                padding += "¦  ";
-            else
-                padding += "   ";
-
-            if (node.right != null)
-                pointer = "+--";
-            else
-                pointer = "L--";
-
-            takeNodesString(tree, padding, pointer, node.left, node.right != null);
-            takeNodesString(tree, padding, "L--", node.right, false);
+    public int findTheNodes() {
+        int k = 0;
+        if (left != null) {
+            if (right != null && attendedNode) {
+                k++;
+                attendedNode = false;
+            }
+            left.findTheNodes();
         }
+        if (right != null) {
+            if (left != null && attendedNode) {
+                k++;
+                attendedNode = false;
+            }
+            right.findTheNodes();
+        }
+        return count += k;
     }
 }
 

@@ -1,4 +1,4 @@
-package Mt;
+package Matrix;
 
 import java.io.*;
 import java.util.Arrays;
@@ -10,8 +10,8 @@ public class MatrixServices {
     Integer[][] readArray;
     Matrix matrixArray;
 
-    String fileRead = "src/main/java/Mt/MatrixBefore.txt";
-    String fileWrite = "src/main/java/Mt/MatrixAfter.txt";
+    String fileRead = "src/main/java/Matrix/MatrixBefore.txt";
+    String fileWrite = "src/main/java/Matrix/MatrixAfter.txt";
 
     public boolean runner() {
 

@@ -20,6 +20,6 @@ public class ProductOfNumbersService {
 
     public static void main(String[] args) {
 
-        System.out.println(productOfNumber(new int[]{2, 4, -10, -10, 8}));
+        System.out.println(productOfNumber(new int[]{-100, -10, 1, 2, 3, 4}));
     }
 }

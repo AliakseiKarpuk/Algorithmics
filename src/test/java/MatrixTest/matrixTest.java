@@ -1,6 +1,6 @@
 package MatrixTest;
 
-import Mt.MatrixServices;
+import Matrix.MatrixServices;
 import lombok.SneakyThrows;
 import org.testng.Assert;
 import org.testng.annotations.Test;
