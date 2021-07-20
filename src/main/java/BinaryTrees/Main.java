@@ -1,25 +1,22 @@
 package BinaryTrees;
 
 public class Main {
-
     public static void main(String[] args) {
-        BinaryTree tree = new BinaryTree();
-        tree.add(7);
-        tree.add(3);
-        tree.add(9);
-        tree.add(2);
-        tree.add(5);
-        tree.add(4);
-        tree.add(6);
-        tree.add(8);
-        tree.add(10);
-        tree.add(12);
-        tree.add(11);
-//        tree.add(13);
-//        tree.add(14);
+        BinaryTree binaryTree ;
+        binaryTree = new BinaryTree(7);
+        binaryTree.addBranch(new BinaryTree(3));
+        binaryTree.addBranch(new BinaryTree(9));
+        binaryTree.addBranch(new BinaryTree(2));
+        binaryTree.addBranch(new BinaryTree(5));
+        binaryTree.addBranch(new BinaryTree(4));
+        binaryTree.addBranch(new BinaryTree(6));
+        binaryTree.addBranch(new BinaryTree(8));
+        binaryTree.addBranch(new BinaryTree(10));
+        binaryTree.addBranch(new BinaryTree(12));
+        binaryTree.addBranch(new BinaryTree(11));
 
-        System.out.println(tree.takeVisual());
-        System.out.println(tree.countOfNodes(tree.root));
+        System.out.println(binaryTree.countNodes());
+        System.out.println();
 
     }
 }
